@@ -28,6 +28,21 @@ public class HangmanGameState {
         return errorCount >= MAX_ERRORS;
     }
 
+
+    //метод на ввод букв
+     public boolean inputLetter(char letter) {
+        letter = Character.toLowerCase(letter);
+        guessedLetters.add(letter);
+        if (selectedWord.indexOf(letter) == -1) {
+            errorCount++;
+            return false;
+        }
+        return true;
+     }
+
+
+    //методы геттеры
+
     public String getSelectedWord() {return selectedWord;}
     public Set<Character> getGuessedLetters() { return guessedLetters; }
     public int getErrorCount() { return errorCount; }
